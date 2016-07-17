@@ -9,6 +9,7 @@ import subprocess
 import tempfile
 import json
 import copy
+import sys
 
 SCRIPT_PATH = os.path.dirname(os.path.abspath(__file__))
 INPUT_SVG_DIR = os.path.join(SCRIPT_PATH, '..', '..', 'src')
@@ -31,6 +32,7 @@ f.descent = 64
 manifest_file = open(MANIFEST_PATH, 'r')
 manifest_data = json.loads(manifest_file.read())
 manifest_file.close()
+manifest_data['icons'] = [x for x in manifest_data['icons'] if x['name'] in sys.argv]
 print "Load Manifest, Icons: %s" % ( len(manifest_data['icons']) )
 
 build_data = copy.deepcopy(manifest_data)
@@ -120,7 +122,7 @@ for dirname, dirnames, filenames in os.walk(INPUT_SVG_DIR):
 
   fontfile = '%s/ionicons' % (OUTPUT_FONT_DIR)
 
-build_hash = m.hexdigest()
+build_hash = 'lololo' # m.hexdigest()
 
 if build_hash == manifest_data.get('build_hash'):
   print "Source files unchanged, did not rebuild fonts"
