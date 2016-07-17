@@ -58,26 +58,7 @@ for dirname, dirnames, filenames in os.walk(INPUT_SVG_DIR):
           break
 
       if chr_code is None:
-        # this is a new src icon
-        print 'New Icon: \n - %s' % (name)
-
-        while True:
-          chr_code = '0x%x' % (cp)
-          already_exists = False
-          for ionicon in manifest_data['icons']:
-            if ionicon.get('code') == chr_code:
-              already_exists = True
-              cp += 1
-              chr_code = '0x%x' % (cp)
-              continue
-          if not already_exists:
-            break
-
-        print ' - %s' % chr_code
-        manifest_data['icons'].append({
-          'name': name,
-          'code': chr_code
-        })
+        continue
 
       build_data['icons'].append({
         'name': name,
