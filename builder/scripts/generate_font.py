@@ -10,6 +10,7 @@ import tempfile
 import json
 import copy
 import sys
+import time
 
 SCRIPT_PATH = os.path.dirname(os.path.abspath(__file__))
 INPUT_SVG_DIR = os.path.join(SCRIPT_PATH, '..', '..', 'src')
@@ -105,7 +106,7 @@ for dirname, dirnames, filenames in os.walk(INPUT_SVG_DIR):
 
 build_hash = 'lololo' # m.hexdigest()
 
-if build_hash == manifest_data.get('build_hash'):
+if False and build_hash == manifest_data.get('build_hash'):
   print "Source files unchanged, did not rebuild fonts"
 
 else:
