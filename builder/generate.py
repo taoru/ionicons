@@ -1,6 +1,7 @@
 from subprocess import call
 import os
 import json
+import sys
 
 
 BUILDER_PATH = os.path.dirname(os.path.abspath(__file__))
@@ -311,6 +312,7 @@ def get_build_data():
   f = open(build_data_path, 'r')
   data = json.loads(f.read())
   f.close()
+  data['icons'] = [x for x in data['icons'] if x['name'] in sys.argv]
   return data
 
 
