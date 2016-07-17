@@ -66,7 +66,7 @@ def generate_less(data):
   d.append('*/');
   d.append('// Ionicons Variables')
   d.append('// --------------------------\n')
-  d.append('@ionicons-font-path: "../fonts";')
+  d.append('@ionicons-font-path: "/cdn/fonts";')
   d.append('@ionicons-font-family: "%s";' % (font_name) )
   d.append('@ionicons-version: "%s";' % (font_version) )
   d.append('@ionicons-prefix: %s;' % (css_prefix) )
@@ -112,7 +112,7 @@ def generate_scss(data):
   d = []
   d.append('// Ionicons Variables')
   d.append('// --------------------------\n')
-  d.append('$ionicons-font-path: "../fonts" !default;')
+  d.append('$ionicons-font-path: "/cdn/fonts" !default;')
   d.append('$ionicons-font-family: "%s" !default;' % (font_name) )
   d.append('$ionicons-version: "%s" !default;' % (font_version) )
   d.append('$ionicons-prefix: %s !default;' % (css_prefix) )
